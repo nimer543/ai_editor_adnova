@@ -25,6 +25,7 @@ if not OPENAI_API_KEY:
 
 MIDDLEWARE = [
     # ... другие middleware ...
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware', # Это очень важно!
     'django.middleware.common.CommonMiddleware',
     # ... остальные middleware ...
@@ -133,6 +134,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
