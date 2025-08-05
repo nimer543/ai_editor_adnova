@@ -1,0 +1,323 @@
+
+h1,h2,h3{
+  font-family: "Outfit", sans-serif;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+
+
+  .logo1{
+    margin-top: 200px;
+    max-width: 520px;
+    max-height: 470px;
+   
+      
+
+  }
+
+  .describe{
+    color: black;
+    letter-spacing: 2px;
+    font-size: 27px;
+    padding-top: 50px;
+    font-family: "Outfit", sans-serif;
+    font-weight:500px;
+    text-align: center;
+  }
+
+  .main_button{
+    all: unset;
+    background-color: #9f1919;
+    color: white;
+    text-align: center; 
+    margin-top: 20px;
+    padding: 15px 25px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-family: "Outfit", sans-serif;
+    font-weight:500px;
+    box-shadow: 0px 10px 13px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .main_button:hover{
+    background-color: #7b1415;
+   
+
+
+  }
+
+  body{
+    background-color: #EAEAE9;
+  }
+  .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0; 
+    width: 100%;
+  }
+  .help{
+    background-color: #EAEAE9;
+    border-radius: 20px;
+    border: 2px solid #000000;
+    color: #000000;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: "Outfit", sans-serif;
+    font-weight:500px;
+    box-shadow: 0px 10px 13px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+
+  }
+  .help:hover{
+    background-color: #000000;
+    color: #EAEAE9;
+  }
+  .frame{
+    background-color: #9f1919 ;
+    margin-top: 10px;
+    border-radius: 15px;
+    border: 2px solid #000000;
+    width: 1000px;
+    height: 400px;
+    
+    
+  }
+  .step{
+    color: #262d27;
+    text-align: center;
+    font-size: 40px;
+    font-family: "Outfit", sans-serif;
+    font-weight:500px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding-bottom: 40px;
+  }
+  .step1{
+    color: white;
+    text-align: center;
+    
+    font-family: "Outfit", sans-serif;
+    font-weight:500px;
+    margin-left: 70px;
+    
+    
+    
+
+  }
+  .step1_sub{
+    color: white;
+    text-align: center;
+    margin-right: 140px;
+    
+   
+  }
+
+  .h2{
+    display: flex;
+    justify-content: space-around;
+    justify-content: space-between;
+    
+  }
+
+  .form{
+    
+    display: flex;
+    justify-content: center;
+  
+  }
+  .name_description1{
+    all: unset;
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid #000000;
+    padding-top: 20px;
+    padding-left: 20px;
+    margin-right: 130px;
+    box-shadow: 10px 10px 13px rgba(0, 0, 0, 0.2);
+  }
+  .name_description2{
+    all: unset;
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid #000000;
+    padding-top: 20px;
+    padding-left: 20px;
+    margin-left: 120px;
+    margin-right: 10px;
+    box-shadow: 10px 10px 13px rgba(0, 0, 0, 0.2);
+  }
+
+  .name_description1::placeholder{
+    font-family: "Outfit", sans-serif;
+    justify-content: center;
+    padding-left: 10px;
+    padding-bottom: 20px;
+  }
+  .name_description2::placeholder{
+    font-family: "Outfit", sans-serif;
+    justify-content: center;
+    padding-left: 10px;
+    padding-bottom: 20px;
+  }
+  .submit{
+    display: block;
+    background-color: #EAEAE9;
+    color: black;
+    padding: 10px 45px;
+    width: fit-content;
+    justify-content: center;
+    border-radius: 20px;
+    border: 2px solid #000000;
+    font-size: 20px;
+    font-family: "Outfit", sans-serif;
+    font-weight: 500; /* Исправлено */
+    box-shadow: 0px 10px 13px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 20px auto 0;
+  }
+  .submit:hover{
+    background-color: #000000;
+    color: #EAEAE9;
+  }
+  
+  .logo2{
+    justify-content: left;
+    max-width: 200px;
+    max-height: 200px;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  
+
+  .basic_inf{
+    font-family: "Outfit", sans-serif;
+    font-weight:500px;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 5px;
+  }
+
+  .sub_title_basic{
+
+    font-family: "Outfit", sans-serif;
+    font-weight:500px;
+    font-weight:200px;
+    opacity: 0.8;
+    color: rgb(205, 205, 205);
+    text-align: center;
+    font-size: 15px;
+    padding-top: 0 auto;
+  }
+
+
+  .step2{
+    color: white;
+    text-align: center;
+    margin-left: 110px;
+  }
+
+  .step2_sub{
+    color: white;
+    text-align: center;
+    margin-right: 140px;
+   
+  }
+  .step3{
+    color: white;
+    text-align: center;
+    margin-left: 160px;
+  }
+
+  .step3_sub{
+    color: white;
+    text-align: center;
+    margin-right: 140px;
+    
+   
+  }
+.container_person{
+    background-color: #ffffff ;
+    margin-top: 10px;
+    border-radius: 15px;
+    width: 1000px;
+    height: 1500px;
+}
+.container_in_container{
+    background-color:  #EAEAE9 ;
+    margin: 10px 20px 20px 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+  .title_persona{
+    font-family: "Outfit", sans-serif;
+    font-weight:500px;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .persona-name{
+    font-family: "Outfit", sans-serif;
+    font-weight:500px;
+    font-size: 55px;
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 100px;
+  }
+
+.container_demograghics{
+  font-family: "Outfit", sans-serif;
+  font-weight:300px;
+  font-size: 25px;
+  margin-left: -70px;
+  text-align: left;
+}
+
+.demographics{
+  font-family: "Outfit", sans-serif;
+  font-weight:500px;
+  font-size: 35px;
+  margin-left:10px;
+  text-align: left;
+}
+.left-aligned-content {
+  /* Ширина 100% позволяет блоку занять всю ширину родителя */
+  width: 100%;
+  text-align: left;
+  margin-top: 20px; /* Отступ сверху для разделения блоков */
+}
+
+.field-age{
+color: rgb(34, 34, 173);
+}
+.field-industry{
+  color: rgb(34, 34, 173)
+}
+.field-location{
+  color: rgb(34, 34, 173)
+}
+.field-family-status{
+  color: rgb(34, 34, 173)
+}
+
+
+  
