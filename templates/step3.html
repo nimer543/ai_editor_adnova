@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block text%} 
+<h1 class="basic_inf" >Who is your customer?</h1>
+<h3 class="sub_title_basic" >This information will be used by AI for <br>better results.</h3>
+            <div class="h2" >
+                <h2 class="step3" >Price category: <br>your average price</h2>
+                <h2 class="step3_sub"> Who are you selling <br> your service/product to?</h2>
+            </div>
+            <form method="post" class="submit_all" >
+                {% csrf_token %}
+                <div  class="form" >
+                        <textarea class="name_description1" placeholder="100-150$" name="price_category" id=""></textarea>
+                    
+                    
+                        <textarea class="name_description2" placeholder="Business or customer" name="customer" id=""></textarea>
+                    
+                    
+                </div>
+                <button class="submit" type="submit" >Send</button>
+            </form>
+{%endblock%}

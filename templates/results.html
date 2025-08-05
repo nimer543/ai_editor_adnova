@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block container%}
+    {% if generated_content %}
+        {# Отображаем сгенерированный текст. Фильтр |safe позволяет отображать HTML-теги, если они есть. #}
+        <pre>{{ generated_content|safe }}</pre>
+    {% else %}
+        <p>Не удалось получить результат. Пожалуйста, попробуйте еще раз.</p>
+    {% endif %}
+{%endblock%}

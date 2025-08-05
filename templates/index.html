@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <title>Main</title>
+</head>
+<body>
+
+    <div class="container" >
+            <img class="logo1" src="{% static 'logo1.png' %}" alt="logo1">
+            <h2 class="describe" >It helps marketers, media buyers, <br> and business owners quickly create effective advertising strategies</h2>
+            <form action="{% url 'step1' %}">
+                <button type="submit" class="main_button" >Create Ad For Free</button>
+            </form>  
+    </div>
+</body>
+</html>

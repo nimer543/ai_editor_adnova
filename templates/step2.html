@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block text%}
+<h1 class="basic_inf" >Product information</h1>
+<h3 class="sub_title_basic" >This information will be used by AI for <br>better results.</h3>
+            <div class="h2" >
+                <h2 class="step2" >How does your product differ <br> from competitors?</h2>
+                <h2 class="step2_sub"> What problem does your  <br>product/service solve?</h2>
+            </div>
+            <form method="post" class="submit_all" >
+                {% csrf_token %}
+                <div  class="form" >
+                        <textarea class="name_description1" placeholder="The fastest product" name="competitors" id=""></textarea>
+                    
+                    
+                        <textarea class="name_description2" placeholder="Decision-making speed" name="problem_solve" id=""></textarea>
+                    
+                    
+                </div>
+                <button class="submit" type="submit" >Send</button>
+            </form>
+            
+{%endblock%}
+
+  
