@@ -253,17 +253,31 @@ h1,h2,h3{
     background-color: #ffffff ;
     margin-top: 10px;
     border-radius: 15px;
-    width: 1000px;
-    height: 1500px;
+    width: 1200px;
+    height: auto;
+    white-space: normal; 
+    padding-bottom:20px;
+    padding-top:20px;
 }
 .container_in_container{
-    background-color:  #EAEAE9 ;
+    background: linear-gradient(45deg, #0d47a1, #1e88e5, #0076a3);
     margin: 10px 20px 20px 20px;
     border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin:0 auto 10px;
+    margin-top: 20px;
+    width: 1100px;
+    height: auto;
+    padding-top: 40px;
+    padding-bottom: 20px;
     
+}
+
+.con_in_con_con{
+  background-color:  #ffffff ;
+  border-radius: 15px;
+  margin: 0 auto 20px;
+  width: 1000px;
+  margin-bottom: 30px;
 }
 
   .title_persona{
@@ -277,24 +291,26 @@ h1,h2,h3{
 
   .persona-name{
     font-family: "Outfit", sans-serif;
-    font-weight:500px;
+    font-weight:500;
     font-size: 55px;
     text-align: center;
     margin: 0 auto;
-    margin-left: 100px;
+    padding-top:30px;
+    padding-bottom:30px;
   }
 
 .container_demograghics{
   font-family: "Outfit", sans-serif;
-  font-weight:300px;
+  font-weight:300;
   font-size: 25px;
-  margin-left: -70px;
   text-align: left;
+  padding-bottom: 50px;
+  padding-left:30px 
 }
 
 .demographics{
   font-family: "Outfit", sans-serif;
-  font-weight:500px;
+  font-weight:500;
   font-size: 35px;
   margin-left:10px;
   text-align: left;
@@ -306,18 +322,287 @@ h1,h2,h3{
   margin-top: 20px; /* Отступ сверху для разделения блоков */
 }
 
-.field-age{
-color: rgb(34, 34, 173);
-}
-.field-industry{
-  color: rgb(34, 34, 173)
-}
-.field-location{
-  color: rgb(34, 34, 173)
-}
-.field-family-status{
-  color: rgb(34, 34, 173)
-}
-
-
+.field-age,.field-industry,.field-location,.field-family-status{
+  font-family: "Outfit", sans-serif;
+  font-weight:500;
+  background: linear-gradient(45deg, #0d47a1, #1e88e5, #0076a3);
   
+      /* 2. Обрезаем фон по контуру текста */
+      -webkit-background-clip: text;
+      background-clip: text;
+  
+      /* 3. Делаем сам текст прозрачным, чтобы был виден фон */
+      -webkit-text-fill-color: transparent;
+      color: transparent; /* Резервное свойство */
+}
+
+.psychotype {
+  background-color:  #ffffff ;
+  border-radius: 15px;
+  margin: 0 auto 20px;
+  width: 1000px;
+  margin-bottom: 30px;
+}
+
+.psychographics {
+  padding-left:30px
+}
+
+.title_psychographics {
+  font-family: "Outfit", sans-serif;
+  font-weight:500;
+  font-size: 55px;
+  text-align: left;
+  margin: 0 auto;
+  padding-top:30px
+  
+}
+
+.field-hobbies {
+  font-family: "Outfit", sans-serif;
+  font-weight:300;
+  font-size: 25px;
+  text-align: left;
+}
+
+.channels {
+  padding-left:30px
+}
+
+.title_channels {
+  font-family: "Outfit", sans-serif;
+  font-weight:500;
+  font-size: 55px;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.field-channels {
+  font-family: "Outfit", sans-serif;
+  font-weight:300;
+  font-size: 25px;
+  text-align: left;
+  padding-bottom:30px
+}
+
+
+.challenges {
+  padding-left:30px
+}
+
+.title_challenges {
+  font-family: "Outfit", sans-serif;
+  font-weight:500;
+  font-size: 55px;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.field-frustrations {
+  font-family: "Outfit", sans-serif;
+  font-weight:300;
+  font-size: 25px;
+  text-align: left;
+  padding-bottom: 30px
+}
+
+.pain {
+  background-color:  #ffffff ;
+  border-radius: 15px;
+  margin: 0 auto 20px;
+  width: 1000px;
+  margin-bottom: 30px;
+}
+
+.title_pain {
+  font-family: "Outfit", sans-serif;
+  font-weight:500;
+  font-size: 55px;
+  text-align: left;
+  margin: 0 auto;
+  padding-top:30px;
+  padding-left:30px;
+}
+
+.pain-points {
+  font-family: "Outfit", sans-serif;
+  font-weight:300;
+  font-size: 25px;
+  text-align: left;
+  padding-bottom: 10px;
+  
+}
+
+.emothional_deep {
+  padding-left:30px
+}
+
+.explain_pain {
+  padding-left:30px
+}
+
+.budget {
+  background-color:  #ffffff ;
+  border-radius: 15px;
+  margin: 0 auto 20px;
+  width: 1000px;
+  margin-bottom: 30px;
+}
+
+.title_budget {
+  font-family: "Outfit", sans-serif;
+  font-weight:500;
+  font-size: 55px;
+  text-align: left;
+  margin: 0 auto;
+  padding-top:30px;
+  padding-left:30px;
+}
+
+.explain {
+  font-family: "Outfit", sans-serif;
+  font-weight:300;
+  font-size: 25px;
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+.willing_pay {
+  padding-left:30px
+}
+
+.what_justifies {
+  padding-left:30px
+}
+.media_habits{
+  background-color:  #ffffff ;
+  border-radius: 15px;
+  margin: 0 auto 20px;
+  width: 1000px;
+  margin-bottom: 30px;
+}
+.media {
+  padding-left:30px
+}
+.title_media{
+  font-family: "Outfit", sans-serif;
+  font-weight:500;
+  font-size: 55px;
+  text-align: left;
+  margin: 0 auto;
+  padding-top:30px;
+  padding-bottom:50px;
+}
+.info-habits {
+  font-family: "Outfit", sans-serif;
+  font-weight:300;
+  font-size: 25px;
+  text-align: left;
+}
+.where{
+  font-family: "Outfit", sans-serif;
+  font-weight:500;
+  font-size: 35px;
+  text-align: left;
+  margin: 0 auto;
+}
+.what{
+  font-family: "Outfit", sans-serif;
+  font-weight:500;
+  font-size: 35px;
+  text-align: left;
+  margin: 0 auto;
+}
+.who{
+  font-family: "Outfit", sans-serif;
+  font-weight:500;
+  font-size: 35px;
+  text-align: left;
+  margin: 0 auto;
+}
+.field-info-sources {
+  font-family: "Outfit", sans-serif;
+  font-weight:300;
+  font-size: 25px;
+  text-align: left;
+  padding-bottom:30px
+}
+
+.content_type {
+  padding-left:30px
+}
+
+.field-content-type {
+  font-family: "Outfit", sans-serif;
+  font-weight:300;
+  font-size: 25px;
+  text-align: left;
+  padding-bottom:30px
+}
+
+.trust {
+  padding-left:30px
+}
+
+.field-trusted-sources {
+  font-family: "Outfit", sans-serif;
+  font-weight:300;
+  font-size: 25px;
+  text-align: left;
+  padding-bottom:30px;
+}
+
+.solves {
+  background-color:  #ffffff ;
+  border-radius: 15px;
+  margin: 0 auto 20px;
+  width: 1000px;
+  margin-bottom: 30px;
+}
+
+.title_solves {
+  font-family: "Outfit", sans-serif;
+  font-weight:500;
+  font-size: 55px;
+  text-align: left;
+  margin: 0 auto;
+  padding-top:30px;
+  padding-left:30px;
+  padding-bottom:30px;
+}
+
+.solution {
+  font-family: "Outfit", sans-serif;
+  font-weight:300;
+  font-size: 25px;
+  text-align: left;
+  padding-left:30px;
+  padding-bottom:30px;
+}
+
+.potential {
+  background-color:  #ffffff ;
+  border-radius: 15px;
+  margin: 0 auto 20px;
+  width: 1000px;
+  margin-bottom: 30px;
+}
+
+.title_potential {
+  font-family: "Outfit", sans-serif;
+  font-weight:500;
+  font-size: 55px;
+  text-align: left;
+  margin: 0 auto;
+  padding-top:30px;
+  padding-left: 30px;
+}
+
+.objections {
+  font-family: "Outfit", sans-serif;
+  font-weight:300;
+  font-size: 25px;
+  text-align: left;
+  padding-left: 30px;
+  padding-bottom:30px;
+}

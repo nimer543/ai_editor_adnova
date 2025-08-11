@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 from django.shortcuts import render, redirect
 # import google.generativeai as genai # УДАЛЯЕМ эту строку
 from django.conf import settings
@@ -7,16 +8,15 @@ from .forms import Step1Form, Step2Form, Step3Form
 from django.urls import reverse
 import json
 import markdown
-from openai import OpenAI # ДОБАВЛЯЕМ эту строку
+import google.generativeai as genai
 
-# genai.configure(api_key=settings.GEMINI_API_KEY) # УДАЛЯЕМ эту строку
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
-# Инициализируем клиент OpenAI
-# Он автоматически будет использовать OPENAI_API_KEY из переменных окружения
-# Если вы устанавливаете ключ через settings.py, то client = OpenAI(api_key=settings.OPENAI_API_KEY)
+GEMINI_MODEL = 'gemini-1.5-flash'
+
 try:
     # Инициализируем клиент OpenAI, оборачиваем в try/except на случай ошибок с ключом
-    client = OpenAI(api_key=settings.OPENAI_API_KEY)
+    genai.configure(api_key=GEMINI_API_KEY)
 except Exception as e:
     print(f"КРИТИЧЕСКАЯ ОШИБКА: Не удалось инициализировать клиент OpenAI. Правильно ли установлен OPENAI_API_KEY? Ошибка: {e}")
     # Вы можете установить client в None, чтобы обработать это позже
@@ -66,6 +66,7 @@ def multi_step_form_view(request, step_number):
 
 def results_view(request):
     """Обрабатывает последний шаг, вызывает OpenAI API и отображает результат."""
+    generated_html = None
 
     all_collected_data = request.session.get('form_data', {})
 
@@ -103,90 +104,102 @@ All information must be formatted as Markdown lists. Use only the headings and c
 <span class="title_persona">Persona Profile Structure</span>
     <div class="container_person">
         <div class="container_in_container"
+        <div class="con_in_con_con">
             <div class="persona-name">
-            Persona Name:Assign a realistic first name to this persona.In one line with text 
+            Assign a realistic first name and second name to this persona.In one line 
             </div>
             <div class="left-aligned-content">
-            <div class="demographics">Demographics</div>
             <div class="container_demograghics">
-                Age:<span class="field-age">Specify a precise age (e.g., 35).</span>  
-                Field of Work/Industry:<span class="field-industry">Indicate their occupation or industry. (If B2B context, specify their role or position.)</span>  
-                Location:<span class="field-location">Specify the type of location (e.g., city, suburb, rural, specific region).</span>  
-                Family Status:<span class="field-family-status">Describe marital status and family (e.g., married with children).</span>
+                Leave 4 spaces between the text and the answer.
+                Age  <span class="field-age">Specify a precise age (e.g., 35).</span> 
+                Field of Work/Industry  <span class="field-industry">Indicate their occupation or industry. (If B2B context, specify their role or position.)</span> 
+                Location  <span class="field-location">Specify the type of location (e.g., city, suburb, rural, specific region).</span>  
+                Family Status  <span class="field-family-status">Describe marital status and family (e.g., married with children).</span> 
             </div>
             </div>
         </div>
 
----
 
-###  Psychographics & Lifestyle:
-<span class="psychographics">
-- **Hobbies & Interests:**  
-  <span class="field-hobbies">Provide 3–5 specific examples of their hobbies or interests that hint at their needs or priorities.</span>
 
-- **Preferred Advertising Channels:**  
-  <span class="field-channels">From the user-provided channels, indicate which platforms best reach this persona.</span>
+<div class="psychotype" > 
+    <div class="psychographics">
+        <h1 class="title_psychographics">Hobbies & Interests</h1>
+        <h2 class="field-hobbies">Provide 3–5 specific examples of their hobbies or interests that hint at their needs or priorities.</h2>
+    </div>
 
-- **Daily Challenges/Frustrations:**  
-  <span class="field-frustrations">Describe their typical day and recurring issues related to the problem the product solves.</span>
-</span>
+    <div class="channels">
+        <h1 class="title_channels" >Preferred Advertising Channels</h1>
+        <h2 class="field-channels">From the user-provided channels, indicate which platforms best reach this persona.</h2>
+    </div>
 
----
+    <div class="challenges" >
+        <h1 class="title_challenges"Daily Challenges/Frustrations</h1>
+        <h2 class="field-frustrations">Describe their typical day and recurring issues related to the problem the product solves.</h2>
+    </div>
+</div>
 
-###  Core Pain Points (Directly Solvable by Product):
-<span class="pain-points">
-Identify 2–3 deep emotional or practical pains related to the primary problem.  
-Explain how these pains manifest in their life with <strong>concrete examples</strong> (not vague).
-</span>
+<div class="pain" >
+    <h1 class="title_pain">Core Pain Points (Directly Solvable by Product)</h1>
+    <div class="pain-points">
+        <p class="emothional_deep" >Identify 2–3 deep emotional or practical pains related to the primary problem.</p>
+        <p class="explain_pain">Explain how these pains manifest in their life with <strong>concrete examples</strong> (not vague).</p>
+    </div>
+</div>
 
----
 
-###  Budget & Willingness to Pay:
-<span class="budget">
-Explain why this persona is willing to pay for a solution given their income and the product’s price range.  
-What justifies the cost for them?
-</span>
+<div class="budget"
+    <h1 class="title_budget">Budget & Willingness to Pay</h1>
+    <div class="explain">
+        <p class="willing_pay" >Explain why this persona is willing to pay for a solution given their income and the product’s price range.</p>  
+        <p class="what_justifies" >What justifies the cost for them?</p>
+    </div>
+</div>
 
----
+<div class="media_habits"
+    <div class="media"
+        <h1 class="title_media" >Information Consumption & Media</h1>
+        <div class="info-habits">
+            <h1 class="where" >Where do he/she seek solutions or information?
+            <h2 class="field-info-sources">(e.g., industry blogs, specific social media platforms, online forums, YouTube tutorials, podcasts, professional communities)</h2>
+        </div>
+    </div>
 
-###  Information Consumption & Media Habits:
-<span class="info-habits">
-- **Where do they seek solutions or information?**  
-  <span class="field-info-sources">(e.g., industry blogs, specific social media platforms, online forums, YouTube tutorials, podcasts, professional communities)</span>
+    <div class="content_type">
+        <h1 class="what" >What type of content does he/she prefer?</h1>  
+        <h2 class="field-content-type">(e.g., long-form articles, short videos, webinars, quick tips)</h2>
+    </div>
 
-- **What type of content do they prefer?**  
-  <span class="field-content-type">(e.g., long-form articles, short videos, webinars, quick tips)</span>
+    <div class="trust" >
+        <h1 class="who">Who does he/she trust for recommendations?</h1>
+        <h2 class="field-trusted-sources">(e.g., industry experts, peer reviews, influencers)</h2>
+    </div>
+</div>
 
-- **Who do they trust for recommendations?**  
-  <span class="field-trusted-sources">(e.g., industry experts, peer reviews, influencers)</span>
-</span>
+<div class="solves" >
+    <h1 class="title_solves" >How the Product Solves her/his Pains</h1
+    <div class="solution">
+    Provide a <strong>narrative</strong> explaining how the product’s Key Differentiator/USP directly addresses each core pain point.  
+    Use the persona’s daily context.  
+    <strong>Example:</strong>  
+    > “For [Persona Name], who dreads [Pain Point], [Product/Service Name]’s [Feature/USP] completely automates [Specific Task], freeing up their evenings for [Desired Outcome].”
+    </div>
+</div>
 
----
+<div class="potential" >
+    <h1 class="title_potential" >Potential Objections/Hesitations</h1>
+    <h2 class="objections">
+    List common doubts or resistance this persona might have before committing to the product/service.
+    </h2>
+</div>
 
-###  How the Product Solves Their Pains:
-<span class="solution">
-Provide a <strong>narrative</strong> explaining how the product’s Key Differentiator/USP directly addresses each core pain point.  
-Use the persona’s daily context.  
-<strong>Example:</strong>  
-> “For [Persona Name], who dreads [Pain Point], [Product/Service Name]’s [Feature/USP] completely automates [Specific Task], freeing up their evenings for [Desired Outcome].”
-</span>
-
----
-
-###  Potential Objections/Hesitations:
-<span class="objections">
-List common doubts or resistance this persona might have before committing to the product/service.
-</span>
-
----
 
 ##  Response Format Requirements:
-<span class="format-rules">
 -Do exactly as written in the prompt!!!
 - Present the persona in a clear, narrative, and engaging style.   
 - Ensure every point is specific and provides actionable insights, not vague generalities.  
 - Maintain a professional, empathetic, and data-driven tone.
-</span>
+-Do not use "" and <p>```html</p>!
+-Use <br> to move text to a new line, when there are more than 8 words in line 1
 </div>
 </div>
 """
@@ -197,31 +210,24 @@ List common doubts or resistance this persona might have before committing to th
 
             
             prompt_content = prompt_template.encode('utf-8').decode('utf-8')
-            # Вызов OpenAI API
-            response = client.chat.completions.create(
-                model="gpt-4o-mini",  # Рекомендую начать с 'gpt-4o-mini' как наиболее дешевой и быстрой, но очень способной. Или 'gpt-3.5-turbo'.
-                messages=[
-                    {"role": "user", "content": prompt_content}
-                ]
-            )
-            generated_text = response.choices[0].message.content
+            # Вызов Gemini API
+            model = genai.GenerativeModel(GEMINI_MODEL)
+            response = model.generate_content(prompt_content)
+            generated_text = response.text
+
             generated_html = markdown.markdown(generated_text, 
             extensions=['markdown.extensions.attr_list']
         )
-            # -----
-            
 
         except Exception as e:
-            print(f"\n--- OpenAI API Error (DEBUG) ---")
+            print(f"\n--- Gemini API Error (DEBUG) ---")
             print(f"Error Type: {type(e).__name__}")
             print(f"Error Message: {e}")
             print(f"-----------------------------------\n")
-            generated_text = f"An error occurred while generating ideas with OpenAI: {e}. Please ensure your API key is correctly set and try again."
+            generated_text = f"An error occurred while generating ideas with Gemini: {e}. Please ensure your API key is correctly set and try again."
     else:
-        # Если данных не хватает, перенаправляем на первый шаг
         return redirect('step1')
 
-    # Очищаем данные сессии после использования
     if 'form_data' in request.session:
         del request.session['form_data']
         request.session.modified = True
@@ -230,7 +236,8 @@ List common doubts or resistance this persona might have before committing to th
         'generated_content': generated_html,
         'all_collected_data': all_collected_data
     }
-    return render(request, 'results.html', context,content_type='text/html; charset=utf-8')
+    return render(request, 'results.html', context, content_type='text/html; charset=utf-8')
+
 
 def loading(request):
     return render(request,'loading.html')

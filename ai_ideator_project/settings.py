@@ -15,12 +15,12 @@ import os
 from dotenv import load_dotenv
 from django.core.exceptions import ImproperlyConfigured
 load_dotenv()
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 # Check if the OPENAI_API_KEY is loaded.
 # This raises an error if the key isn't found, preventing the app from running without it.
-if not OPENAI_API_KEY:
-    raise ImproperlyConfigured("OPENAI_API_KEY not found in environment variables or .env file. Please set it.")
+if not GEMINI_API_KEY:
+    raise ImproperlyConfigured("GEMINI_API_KEY not found in environment variables or .env file. Please set it.")
 
 
 MIDDLEWARE = [
