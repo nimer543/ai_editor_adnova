@@ -15,6 +15,7 @@ h1,h2,h3{
 
   .logo1{
     margin-top: 200px;
+
     max-width: 520px;
     max-height: 470px;
    
@@ -26,7 +27,6 @@ h1,h2,h3{
     color: black;
     letter-spacing: 2px;
     font-size: 27px;
-    padding-top: 50px;
     font-family: "Outfit", sans-serif;
     font-weight:500px;
     text-align: center;
@@ -34,9 +34,11 @@ h1,h2,h3{
 
   .main_button{
     all: unset;
-    background-color: #9f1919;
+    background: linear-gradient(45deg, #0d47a1, #1e88e5, #0076a3);
     color: white;
     text-align: center; 
+    background-size: 200% 100%;
+    background-position: 0% 0%;
     margin-top: 20px;
     padding: 15px 25px;
     border-radius: 20px;
@@ -45,11 +47,11 @@ h1,h2,h3{
     font-weight:500px;
     box-shadow: 0px 10px 13px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-position 0.5s ease;
   }
 
   .main_button:hover{
-    background-color: #7b1415;
+    background-position: 100% 0;
    
 
 
@@ -85,23 +87,23 @@ h1,h2,h3{
     color: #EAEAE9;
   }
   .frame{
-    background-color: #9f1919 ;
+    background: linear-gradient(45deg, #0d47a1, #1e88e5, #0076a3);
     margin-top: 10px;
     border-radius: 15px;
-    border: 2px solid #000000;
+    
     width: 1000px;
     height: 400px;
     
     
   }
   .step{
-    color: #262d27;
+    color: black;
     text-align: center;
     font-size: 40px;
     font-family: "Outfit", sans-serif;
     font-weight:500px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 20px;
     padding-bottom: 40px;
   }
   .step1{
@@ -189,7 +191,7 @@ h1,h2,h3{
     margin: 20px auto 0;
   }
   .submit:hover{
-    background-color: #000000;
+    background: black;
     color: #EAEAE9;
   }
   

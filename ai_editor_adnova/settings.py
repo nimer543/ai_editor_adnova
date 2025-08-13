@@ -17,18 +17,18 @@ from django.core.exceptions import ImproperlyConfigured
 load_dotenv()
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
-# Check if the OPENAI_API_KEY is loaded.
+# Check if the GEMINI_API_KEY is loaded.
 # This raises an error if the key isn't found, preventing the app from running without it.
 if not GEMINI_API_KEY:
     raise ImproperlyConfigured("GEMINI_API_KEY not found in environment variables or .env file. Please set it.")
 
 
 MIDDLEWARE = [
-    # ... другие middleware ...
+
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware', # Это очень важно!
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # ... остальные middleware ...
+
 ]
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -68,12 +68,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'ai_ideator_project.urls'
+ROOT_URLCONF = 'ai_editor_adnova.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ai_ideator_project.wsgi.application'
+WSGI_APPLICATION = 'ai_editor_adnova.wsgi.application'
 
 
 # Database
@@ -135,11 +135,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
